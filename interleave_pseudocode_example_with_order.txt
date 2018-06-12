@@ -1,0 +1,85 @@
+# WORKING FILE FOR PSEUDOCODE FOR 2ND BLOG ON WHAT IS GOING ON
+# MORE DEEPLY WITH ORDER, WHAT MOVES WHERE AS THIS HAPPENS ETC
+# interleave_queue_to_stack.py
+# Takes a stack and a queue and interleaves the two,
+# in place.
+#
+# Hannah Lily Postman
+# April 2018
+def interweave_queue_to_stack(s,q,n=1,offset=0):
+    # Takes a stack s and a queue q, and two integers
+    # n and offset, and modifies s in-place so that
+    # the ith element of q follows the
+    # ith+offset element of q. One element
+    # of s separates interwoven elements from
+    # q when the function terminates, unless
+    # n is specified to be something other than 1. Valid
+    # values for n are strictly positive integers.  If n
+    # or offset is larger than the length of s, s is unchanged.
+    # If due to the offset and/or choice of n, not all elements
+    # can be interwoven from q to s with interval n, interweaves
+    # the last element of q that can be merged into s respecing n
+    # etc and then terminates - this means that the rest of q is NOT
+    # interwoven into s.  On the other hand, if q runs out of elements
+    # to interweave before the last possible place in s, the rest of s
+    # is maintained as part of s without any interspersed elements.
+    #
+    # s = [1a,2a,3a,4a,5a], q = [1b,2b,3b,4b]
+    #
+    # Action A: Move all elements in the way of the target spot into q
+    # q.enqueue(s.pop()) 4x in a row => s = [1a], q = [1b,2b,3b,4b,5a,4a,3a,2a]
+    # Action B: Place element of q in target spot, and move out all elements that
+    # will be in the way of dequeueing from q the propper s element that
+    # has to go back in its place
+    # s.push(q.dequeue()) 4x in a row => s = [1a,1b,2b,3b,4b], q = [5a,4a,3a,2a]
+    # Action A-prime: Again, move all elements in the way of target spot into q
+    # q.enqueue(s.pop()) 3x in a row => s = [1a,1b], q = [5a,4a,3a,2a,4b,3b,2b]
+    # Action B-prime: Replace the element of s that was moved to clear access for the placing of
+    # a q element to its left - it should go back and live to the right of its
+    # new friend.  Then again move out all elements that will be in the way of
+    # dequeueing from q the next element to get placed, this time one from the
+    # original q (not a baby-sat s element)
+    # s.push(q.dequeue()) 4x in a row => s = [1a,1b,5a,4a,3a,2a], q = [4b,3b,2b]
+    # Action A (second time, so a's flip forward, back to normal, because pop-enq-pop
+    # is like an identity for order). Again move all elements in the way of the target spot into q
+    # q.enqueue(s.pop()) 3x in a row => s = [1a,1b,5a], q = [4b,3b,2b,2a,3a,4a]
+    # Action B. Place element of q in target spot, and move out all elements that
+    # will be in the way of dequeueing from q the next element to get placed, in
+    # this case, one of the baby-sat s elements
+    # s.push(q.dequeue()) 3x in a row => s = [1a,1b,5a,4b,3b,2b], q = [2a,3a,4a]
+    # Action A-prime. Again move all elements in the way of the target spot into q
+    # Note that as you do this, you will pop i times where i is the absolute value of
+    # the number that would be the index if accessing the stack as an array from the
+    # back.  So in this example at this step, we can't say s[-2] = a, but we can
+    # pop 2 times and then push an "a" onto s.  We will do so now with the
+    # upcoming enqueue/push pair :)
+    # q.enqueue(s.pop()) 2x in a row => s = [1a,1b,5a,4b], q = [2a,3a,4a,2b,3b]
+    # Action B-prime. Replace the element of s that was moved to clear access for the placing of
+    # a q element to its left - it should go back and live to the right of its
+    # new friend.  Then again move out all elements that will be in the way of
+    # dequeueing from q the next element to get placed, this time one from the
+    # original q (not a baby-sat s element)
+    # s.push(q.dequeue()) 3x in a row => s = [1a,1b,5a,4b,2a,3a,4a], q = [2b,3b]
+    # Action A. Clear the target place in s by pushing to q.
+    # q.enqueue(s.pop()) 2x in a row => s = [1a,1b,5a,4b,2a], q = [2b,3b,4a,3a]
+    # Action B. Place the target original q element in s and clear the queue in prep
+    # s.push(q.dequeue()) 2x in a row => s = [1a,1b,5a,4b,2a,2b,3b], q = [4a,3a]
+    # Action A-prime. Clear the target place in s for the return of an original
+    # s element (i.e. move the extra q elements you shoved onto s back to q)
+    # q.enqueue(s.pop()) 1x amen! => s = [1a,1b,5a,4b,2a,2b], q = [4a,3a,3b]
+    # Action B-prime. put an "a" back.
+    # s.push(q.dequeue()) 2x in a row => ss = [1a,1b,5a,4b,2a,2b,4a,3a], q = [3b]
+    # Action A. Clear target place
+    # q.enqueue(p.pop()) 1x ! => s = [1a,1b,5a,4b,2a,2b,4a], q = [3b,3a]
+    # Action B. Place the q element in its hard-earned spot
+    # p.push(q.dequeue()) 2x in a row => s = [1a,1b,5a,4b,2a,2b,4a,3b,3a], q = []
+    # Notice the a's ended up in the order [1,5,2,4,3] and the b's in [1,4,2,3]
+    # How can you get the a's to be [1,2,3,4,5] and the b's [4,3,2,1]?
+    # What would happen if you started with everything in the stack and an empty
+    # queue?  Everything in the queue and an empty stack?  And (hint) moved
+    # everything into the other data structure?  1x?  back?  2x?  back?
+    # Is there a time when applying the above algorithm unmodified would give you
+    # the order [1a,4b,2a,3b,3a,2b,4a,1b,5a]?
+    #
+    print("The function interweave_queue_to_stack is not yet implemented")
+interweave_queue_to_stack([],[])
