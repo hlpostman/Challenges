@@ -39,3 +39,24 @@ def test_extreme_input():
 
 # Test bad input
 # Negative numbers, including "-0", floats, non-numeric input, wrong number of arguments
+def test_type_error():
+    with pytest.raises(TypeError):
+        # Bad number of arguments
+        add()
+        add(1)
+        add(1,1,1)
+        # Bad type in first argument
+        add(1.0, 1)
+        add("", 1)
+        add([], 1)
+        # Bad type in second argument
+        add(1, 1.0)
+        add(1, "")
+        add(1,[])
+
+def test_value_error():
+    # Signed input
+    with pytest.raises(ValueError):
+        add(-1, 1)
+    with pytest.raises(ValueError):
+        add(1, -1)
