@@ -12,7 +12,8 @@ def add_without_arithmetic_operators(a, b):
         Raises:
             TypeError: at least one of a and b is not an unsigned integer
     """
-
+    if a < 0 or b < 0:
+        raise ValueError("Both arguments must be non-negative.")
     while b != 0:
         carry = a & b # Mask of the bits that will necessitate carrying
         a ^= b # Mask of the bits that, at this iteration, can be added into a from b without carrying
