@@ -13,32 +13,18 @@ def reverse_digits(n):
         TypeError: n is not an integer.  Floats do not work, even they are floored, e.g. 1.0 raises TypeError, 1 does not.
     """
 
+    n_is_negative = True if n < 0 else False # Handle negative input step 1 of 3
+    n = -1*n if n_is_negative else n # Handle negative input step 2 of 3
     reversed_digits = 0
-    num_digits = count_digits(n)
 
-    for i in range(1, num_digits+1):
-        reversed_digits += n%10
-        reversed_digits *= 10 # Left shift n by 1 place so each digit of n just gets added as a 1's place
-        n //= 10
-
-    return reverse_digits
-
-def count_digits(n):
-    """Counts the number of places, i.e. digits, in the number passed.
-
-    Args:
-        n: an integer, signed or unsigned
-
-    Returns:
-        integer representing the number of places, i.e. digits, in n, e.g. if n = 123, the return integer is 3.
-
-    Raises:
-        TypeError: n is not an integer.  Floats do not work, even they are floored, e.g. 1.0 raises TypeError, 1 does not.
-    """
-
-    num_digits = 0
     while n:
-        num_digits += 1
+        reversed_digits += n%10
+        reversed_digits *= 10 # Left shift by 1 place so each digit of n just gets added as a 1's place
         n //= 10
 
-    return num_digits
+    reversed_digits //= 10 # Shift back right by 1 place
+
+    # Handle negative input step 3 of 3
+    reversed_digits = -1*reversed_digits if n_is_negative else reversed_digits #
+
+    return reversed_digits
