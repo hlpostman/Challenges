@@ -13,3 +13,4 @@ A pythonic tour of frameworks and algorithms
 * [interleave](https://github.com/hlpostman/challenges/blob/master/interleave/interleave.py)
 * [swap_bits](https://github.com/hlpostman/challenges/blob/master/swap_bits/swap_bits.py)
 * [closest_int_with_same_weight](https://github.com/hlpostman/challenges/blob/master/closest_int_with_same_weight/closest_int_with_same_weight.py)
+* [base_ten_palindrome](https://github.com/hlpostman/challenges/blob/master/base_ten_palindrome/base_ten_palindrome.py)
