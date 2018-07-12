@@ -12,7 +12,8 @@ def reverse_digits(n):
     Raises:
         TypeError: n is not an integer.  Floats do not work, even they are floored, e.g. 1.0 raises TypeError, 1 does not.
     """
-
+    if not isinstance(n, int):
+        raise TypeError("Bad argument type.  Expecting integer.  Given float.")
     n_is_negative = True if n < 0 else False # Handle negative input step 1 of 3
     n = -1*n if n_is_negative else n # Handle negative input step 2 of 3
     reversed_digits = 0
