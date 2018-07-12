@@ -60,3 +60,5 @@ print(nh, h)
 big o and space (linear and constant, respectively, address linear vs constant)
 
 [reverse_digits](https://github.com/hlpostman/challenges/blob/master/reverse_digits/reverse_digits.py)
+
+Note tricky values such as 100.  The reverse of digits 1,0, and 0 is 0, 0, and 1 = but 001 is simply 1, therefore the return integer may not have the same number of digits as the input integer.
