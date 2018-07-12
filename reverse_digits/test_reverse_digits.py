@@ -4,9 +4,11 @@
 import pytest
 from reverse_digits import reverse_digits as reverse
 
+
 # Test valid input
+
 def test_basic_input():
-    assert reverse(15) == 51
+    assert reverse(123) == 321
     assert reverse(12345678901) == 10987654321
 
 def test_extreme_size_input():
@@ -25,4 +27,27 @@ def test_palindromic_input():
     assert reverse(1001) == 1001
 
 # Test bad input
-# bad types (floats, non-numeric input), bad number of arguments (none, one too many)
+
+# Test TypeError for non-integer input
+def test_float_input():
+    with pytest.raises(TypeError):
+        reverse(123.0)
+
+def test_non_numeric_input_1():
+    with pytest.raises(TypeError):
+        reverse("")
+
+def test_non_numeric_input_2():
+    with pytest.raises(TypeError):
+        reverse([])
+
+# Test TypeError for wrong number of arguments
+def test_wrong_number_of_arguments_1():
+    # No argument passed
+    with pytest.raises(TypeError):
+        reverse()
+
+def test_wrong_number_of_arguments_2():
+    # Too many arguments passed
+    with pytest.raises(TypeError):
+        reverse(123,123)
