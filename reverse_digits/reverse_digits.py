@@ -8,9 +8,10 @@ def reverse_digits(n):
         n: an integer, signed or unsigned
 
     Returns:
-        integer.  The return integer has its digits the reverse from that of the input integer, e.g if the input integer is 123, the return integer is 321.  Note tricky values such as 100.  The reverse of digits 1,0, and 0 is 0, 0, and 1 = but 001 is simply 1, therefore the return integer may not have the same number of digits as the input integer.
+        integer.  The return integer has its digits the reverse from that of the input integer, e.g if the input integer is 123, returns 321.
+
     Raises:
-        TypeError: n is not an integer.  Floats do not work, even they are floored, e.g. 1.0 raises TypeError, 1 does not.
+        TypeError: n is not an integer
     """
     if not isinstance(n, int):
         raise TypeError("Bad argument type.  Expecting integer.  Given float.")
