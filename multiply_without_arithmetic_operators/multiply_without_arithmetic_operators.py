@@ -14,6 +14,8 @@ def multiply_without_arithmetic_operators(a, b):
         TypeError: the arguments received for a and b are not both integers
 
     """
+    if a < 0 or b < 0:
+        raise ValueError("Both arguments must be non-negative.")
     product = 0
     LSB_in_b_mask = 1
     i = 0
@@ -28,6 +30,7 @@ def multiply_without_arithmetic_operators(a, b):
 
 def add_without_arithmetic_operators(a, b):
     """ Takes two unsigned integers and returns their sum without using arithmetic operators.
+
         Args:
             a, b: both unsigned integers
         Returns:
