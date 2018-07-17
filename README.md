@@ -14,4 +14,5 @@ A pythonic tour of frameworks and algorithms
 * [swap_bits](https://github.com/hlpostman/challenges/blob/master/swap_bits/swap_bits.py)
 * [closest_int_with_same_weight](https://github.com/hlpostman/challenges/blob/master/closest_int_with_same_weight/closest_int_with_same_weight.py)
 * [reverse_digits](https://github.com/hlpostman/challenges/blob/master/reverse_digits/reverse_digits.py)
+* [multiply_without_arithmetic_operators](https://github.com/hlpostman/challenges/blob/master/multiply_without_arithmetic_operators/multiply_without_arithmetic_operators.py)
 * [exponentiate](https://github.com/hlpostman/challenges/blob/master/exponentiate/exponentiate.py)
