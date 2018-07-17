@@ -23,9 +23,8 @@ def exponentiate(a,b):
     result = 1.0
     if b < 0:
         b, a = -b, 1.0 / a
-    while b:
-        # Handle the single copy of a held in b if b is odd
-        if b & 1:
+    while b != 0:
+        if b & 1 == 1:
             result *= a
         a, b = a * a, b >> 1
-    return result/1.0
+    return result
