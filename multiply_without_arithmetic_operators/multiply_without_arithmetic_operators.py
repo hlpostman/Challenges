@@ -20,7 +20,7 @@ def multiply_without_arithmetic_operators(a, b):
     LSB_in_b_mask = 1
     i = 0
     while b:
-        if b&LSB_in_b_mask:
+        if b & LSB_in_b_mask != 0:
             a_times_LSB_in_b = a << i
             product = add_without_arithmetic_operators(product, a_times_LSB_in_b)
             b ^= LSB_in_b_mask # Clear that place in b
