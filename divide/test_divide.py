@@ -2,7 +2,7 @@
 # 15 July 2018
 
 import pytest
-import divide
+from divide import divide
 
 # Test valid input
 
@@ -26,7 +26,7 @@ def test_a_and_b_same_number():
 
 def test_division_by_one():
     assert divide(1,1) == 1
-    assert divide(5,1) == 1
+    assert divide(5,1) == 5
     assert divide(1000,1) == 1000
 
 def test_zero_as_dividend():
@@ -51,6 +51,12 @@ def test_float_input():
         divide(1.5,1)
     with pytest.raises(TypeError):
         divide(1,1.5)
+
+def test_negative_input():
+    with pytest.raises(TypeError):
+        divide(-1,1)
+    with pytest.raises(TypeError):
+        divide(1,-1)
 
 def test_non_numeric_input():
     with pytest.raises(TypeError):
@@ -77,9 +83,3 @@ def test_division_by_zero():
         divide(0,0)
     with pytest.raises(ValueError):
         divide(1,0)
-
-def test_negative_input():
-    with pytest.raises(ValueError):
-        divide(-1,1)
-    with pytest.raises(ValueError):
-        divide(1,-1)
