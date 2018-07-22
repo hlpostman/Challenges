@@ -11,11 +11,10 @@ def longest_consecutive_sequence(arr):
         Raises:
             TypeError: expected array of integers
     """
-    longest_consecutive_sequence = []
+    length_of_longest_consecutive_sequence = 1
     hash = set(arr)
     while hash:
         elt = hash.pop()
-        print(elt)
         start = elt - 1
         while start in hash:
             hash.remove(start)
@@ -24,7 +23,6 @@ def longest_consecutive_sequence(arr):
         while end in hash:
             hash.remove(end)
             end += 1
-        if end - start - 1> len(longest_consecutive_sequence):
-            longest_consecutive_sequence = [i for i in range(start+1,end)]
-            print(longest_consecutive_sequence)
-    return longest_consecutive_sequence
+        if end - start - 1> length_of_longest_consecutive_sequence:
+            length_of_longest_consecutive_sequence = end - start - 1
+    return length_of_longest_consecutive_sequence

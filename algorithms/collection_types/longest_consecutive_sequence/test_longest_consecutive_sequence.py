@@ -7,6 +7,6 @@ from longest_consecutive_sequence import longest_consecutive_sequence as lcs
 # Test valid input
 
 def test_basic_input():
-    assert lcs([-2,0,100,1,8,-1,9]) == [-2,-1,0,1]
+    assert lcs([-2,0,100,1,8,-1,9]) == 4
 
 # Test bad input
