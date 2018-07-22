@@ -10,6 +10,7 @@ def test_basic_input():
     assert ng([-3,-2,-1]) == [-2,-1,-1]
     assert ng([1,9,4,3,10]) == [9,10,10,10,-1]
     assert ng([4,5,2,10]) == [5,10,10,-1]
+    assert ng([34,35,27,42,5,28,39,20,28]) == [35,42,42,-1,28,39,-1,28,-1]
 def test_extreme_input():
     # Singleton list
     assert ng([1]) == [-1]
