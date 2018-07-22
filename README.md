@@ -17,3 +17,4 @@ A pythonic tour of frameworks and algorithms
 * [reverse_digits](https://github.com/hlpostman/challenges/blob/master/algorithms/primitive_types/reverse_digits)
 * [multiply_without_arithmetic_operators](https://github.com/hlpostman/challenges/blob/master/algorithms/primitive_types/multiply_without_arithmetic_operators)
 * [exponentiate](https://github.com/hlpostman/challenges/blob/master/algorithms/primitive_types/exponentiate)
+* [next_greater](https://github.com/hlpostman/challenges/blob/master/algorithms/ccollection_types/next_greater)
