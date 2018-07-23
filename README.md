@@ -1,4 +1,4 @@
-## Attn: CodePath
+### Attn: CodePath
 Hello CodePath Interview Prep Evaluators!
 
 Below are links to my solution to every checkpoint problem for levels 1 - 5 on the Interview Bit platform.
@@ -23,6 +23,8 @@ Thank you for evaluating my application for the interview prep program.
 * [All Unique Permutations](https://github.com/hlpostman/challenges/blob/master/algorithms/perms.py)
 * [Longest Consecutive Sequence](https://github.com/hlpostman/challenges/blob/master/algorithms/collection_types/longest_consecutive_sequence/longest_consecutive_sequence.py)
 
+
+-----------------
 
 # challenges
 A pythonic tour of frameworks and algorithms
