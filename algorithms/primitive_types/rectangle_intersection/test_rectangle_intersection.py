@@ -27,4 +27,42 @@ def test_argument_symmetry():
     assert intersection((0,0),(10,10),(2,2),(3,3)) == intersection((2,2),(3,3),(0,0),(10,10))
     assert intersection((0,0),(1,1),(2,2),(3,3)) == intersection((2,2),(3,3),(0,0),(1,1))
 
+def test_floats():
+        assert intersection((0.5,0.5),(1.5,1.5),(1.5,1.5),(3.5,3.5)) == [(1.5,1.5),(1.5,1.5)]
+
 # Test bad input
+
+# Test TypeError
+def test_non_tuple_input():
+    with pytest.raises(TypeError):
+        intersection("",[],{},1)
+
+def test_non_numberic_input_in_tuples():
+    with pytest.raises(TypeError):
+        intersection((0,""),(1,1),(2,2),(3,3))
+
+def test_wrong_number_of_elements_in_tuples():
+    # Too few elements in the tuples
+    with pytest.raises(TypeError):
+        intersection((),(),(),())
+    # Too many elements in the tuples (error coded by hand)
+    with pytest.raises(TypeError):
+        intersection((0,0),(1,1),(2,2),(3,3,3))
+
+def test_wrong_number_of_arguments():
+    # No arguments
+    with pytest.raises(TypeError):
+        intersection()
+    # At least one argument, but not four
+    with pytest.raises(TypeError):
+        intersection((1,1))
+    # Too many arguments
+    with pytest.raises(TypeError):
+        intersection((0,0),(1,1),(2,2),(3,3),(4,4))
+    with pytest.raises(TypeError):
+        intersection((0,0),(0,0),(0,0),(0,0),(0,0))
+
+# Test ValueError
+def test_negative_input():
+    with pytest.raises(ValueError):
+        intersection((0,0),(-1,1),(2,2),(3,3))
