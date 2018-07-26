@@ -18,3 +18,4 @@ A pythonic tour of frameworks and algorithms
 * [multiply_without_arithmetic_operators](https://github.com/hlpostman/challenges/blob/master/algorithms/primitive_types/multiply_without_arithmetic_operators)
 * [exponentiate](https://github.com/hlpostman/challenges/blob/master/algorithms/primitive_types/exponentiate)
 * [divide](https://github.com/hlpostman/challenges/blob/master/algorithms/primitive_types/divide)
+* [dutch_national_flag_problem](https://github.com/hlpostman/challenges/blob/master/algorithms/collection_types/arrays/dutch_national_flag_problem)
