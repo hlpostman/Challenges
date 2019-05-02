@@ -1,7 +1,8 @@
 # knuth_morris_pratt.py
 # May 2019
 
-def knuth_morris_pratt_algorithm(string: str, substring: str) -> str:
+def knuth_morris_pratt_algorithm(string: str, substring: str) -> bool:
+	# Build helper table
 	substring_internal_matches = [-1 for _ in substring]
 	i, j = 1, 0
 	while i < len(substring):
@@ -15,6 +16,7 @@ def knuth_morris_pratt_algorithm(string: str, substring: str) -> str:
 			continue
 		else:
 			i += 1
+	# Search in big string for substring
 
 def longest_repeated_prefix(s: str) -> str:
 	substring_internal_matches = [-1 for _ in s]
