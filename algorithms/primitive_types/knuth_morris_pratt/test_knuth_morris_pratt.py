@@ -2,12 +2,15 @@
 # May 2019
 
 import unittest
-from knuth_morris_pratt import longest_repeated_prefix
+from knuth_morris_pratt import knuth_morris_pratt_algorithm, longest_repeated_prefix
 
 class TestKnuthMorrisPratt(unittest.TestCase):
 
     def test_general(self):
-        pass
+        input1_str, input1_substr = "aefaefaefaedaefaedaefaefa", "aefaedaefaefa"
+        correct_output1 = True
+        actual_output1 = knuth_morris_pratt_algorithm(input1_str, input1_substr)
+        self.assertEqual(correct_output1, actual_output1)
     
     def test_corner(self):
         pass
