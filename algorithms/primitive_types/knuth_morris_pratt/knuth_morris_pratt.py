@@ -1,3 +1,6 @@
+# knuth_morris_pratt.py
+# May 2019
+
 def knuth_morris_pratt_algorithm(string: str, substring: str) -> str:
 	substring_internal_matches = [-1 for _ in substring]
 	i, j = 1, 0
